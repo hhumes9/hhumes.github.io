@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<link href='https://fonts.googleapis.com/css?family=Sintony:400,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+	<link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
+	<script src="js/modernizr.js"></script> <!-- Modernizr -->
+
+
+
+	<title>WINE</title>
+</head>
+<body>
+<nav class="cd-vertical-nav">
+	<ul>
+		<li><a href="#section1" class="active"><span class="label">Title</span></a></li>
+		<li><a href="#section1b"><span class="label">Intro</span></a></li>
+		<li><a href="#section2"><span class="label">Map</span></a></li>
+		<li><a href="#section3"><span class="label">Chemicals</span></a></li>
+		<li><a href="#section4"><span class="label">Descriptors</span></a></li>
+		<li><a href="#section5"><span class="label">Price</span></a></li>
+		<li><a href="#section6"><span class="label">Conclusion</span></a></li>
+	</ul>
+</nav><!-- .cd-vertical-nav -->
+
+<button class="cd-nav-trigger cd-image-replace">Open navigation<span aria-hidden="true"></span></button>
+
+<section id="section1" class="cd-section">
+	<div class="content-wrapper">
+		<h1>WINE <b>101</b></h1>
+<!--		<a href="#section2" class="cd-scroll-down cd-image-replace">scroll down</a>-->
+	</div>
+</section><!-- cd-section -->
+
+<section id="section1b" class="cd-section">
+	<div class="container-fluid">
+		<h1 style="font-size:50px">260,000,000 HECTOLITERS </h1>
+		<p style="padding-top: 0px">of wine is consumed every year worldwide.</p>
+		<p>A longstanding symbol of culture and leisure, wine has grown in variety and complexity over centuries. For wine novices, the world of wine can quite overwhelming. This guide is a visual introduction to wine, teaching the fundamentals on wine production regions, what makes a wine great, wine varieties, and price ranges. A good foundation leads to informed purchases and better-tasting wine. Good luck!</p>
+	</div>
+</section><!-- cd-section -->
+
+
+<section id="section2" class="cd-section">
+	<div class="container-fluid">
+		<h2>WINE WORLDWIDE</h2>
+		<p>Wine is ubiquitously enjoyed across the world.
+			Take a look at the largest wine importing and exporting countries, by both trade value and trade volume.
+			Select a time range by brushing over the timeline below, and hover over any country for more specific information.
+		</p>
+
+		<div class="row justify-content-center">
+
+			<div class="col">
+				<div class="row justify-content-center">
+					<select id='flowSelector' class="custom-select align-self-center shadow-none" onchange="categoryChange()">
+						<option value="import_country" selected>Import</option>
+						<option value="export_country">Export</option>
+					</select>
+				</div>
+			</div>
+			<div class="col">
+				<div class="row justify-content-center">
+					<select id='metricSelector' class="custom-select align-self-center shadow-none" onchange="categoryChange()">
+						<option value="valueTrade" selected>Trade value (USD)</option>
+						<option value="quantityTrade">Trade volume (metric tons)</option>
+					</select>
+				</div>
+			</div>
+		</div>
+		<div class=" time-row justify-content-center d-flex">
+			<div id="time-period-min" class="time-range"></div>
+			<div class="col align-self-center time-dash"><b> - </b></div>
+			<div id="time-period-max" class="time-range"></div>
+
+		</div>
+
+		<div class="row justify-content-center">
+			<div id="mapDiv"></div>
+		</div>
+		<div class="row justify-content-center">
+			<div id="brushDiv"></div>
+		</div>
+
+	</div>
+</section><!-- cd-section -->
+
+<section id="section3" class="cd-section">
+	<div class="container-fluid">
+		<h2>THE CHEMISTRY OF WINE</h2>
+		<div class="row">
+			<p style="font-size: 15px;">
+				When trying to think about how wine is characterized a s good or bad, we can either turn to expert sommeliers,
+				whose descriptions you’ll be able to see later, or how science has looked at these things. In a machine learning
+				study, wine scientists (the best job ever) created a model with the listed chemical properties of wine and taught
+				the AI how to categorize wines as good or bad. Play with the properties in both red and white wine to see
+			</p>
+			<p style="font-size: 15px;">
+				To make the chart easier to compare between chemistry components, the data was standardized with a
+				mean of 1 and standard deviation of 1. Each of the rings represents the average of a quality level,
+				which goes from 1-10, but only ended up using the range 3-8 in the predictions.
+			</p>
+		</div>
+		<div class="row" style="height: 50%">
+			<div class="col-2">
+				<div class="row justify-content-center" style="height: 90%; background-color: darkslategray; border-radius: 5px; border-color: black">
+					<h4> Choose Quality Levels to Compare</h4>
+					<form>
+						<input type="checkbox" id="quality3" value="3" onchange="onSelectionChange()" checked>
+						<label for="quality3"> Quality: 3 </label><br>
+						<input type="checkbox" id="quality4" value="4" onchange="onSelectionChange()" checked>
+						<label for="quality4"> Quality: 4 </label><br>
+						<input type="checkbox" id="quality5" value="5" onchange="onSelectionChange()" checked>
+						<label for="quality5"> Quality: 5 </label><br>
+						<input type="checkbox" id="quality6" value="3" onchange="onSelectionChange()" checked>
+						<label for="quality6"> Quality: 6 </label><br>
+						<input type="checkbox" id="quality7" value="7" onchange="onSelectionChange()" checked>
+						<label for="quality7"> Quality: 7 </label><br>
+						<input type="checkbox" id="quality8" value="7" onchange="onSelectionChange()" checked>
+						<label for="quality7"> Quality: 8 </label><br>
+					</form>
+					<h4> Choose Attributes to Compare</h4>
+					<form style="font-size: 15px">
+						<input type="checkbox" id="attribute1" value="alcohol" onchange="onSelectionChange()" checked>
+						<label for="attribute1"> Alcohol </label><br>
+						<input type="checkbox" id="attribute2" value="pH" onchange="onSelectionChange()" checked>
+						<label for="attribute2"> pH</label><br>
+						<input type="checkbox" id="attribute3" value="density" onchange="onSelectionChange()" checked>
+						<label for="attribute3"> Density </label><br>
+						<input type="checkbox" id="attribute4" value="residual sugar" onchange="onSelectionChange()" checked>
+						<label for="attribute4"> Residual Sugar </label><br>
+						<input type="checkbox" id="attribute5" value="volatile acidity" onchange="onSelectionChange()"  checked>
+						<label for="attribute5"> Volatile Acidity</label><br>
+						<input type="checkbox" id="attribute6" value="fixed acidity" onchange="onSelectionChange()"  checked>
+						<label for="attribute6"> Fixed Acidity </label><br>
+						<input type="checkbox" id="attribute7" value="citric acidity" onchange="onSelectionChange()" checked>
+						<label for="attribute7"> Citric Acid </label><br>
+						<input type="checkbox" id="attribute8" value="chlorides" onchange="onSelectionChange()" checked>
+						<label for="attribute8"> Chlorides</label><br>
+						<input type="checkbox" id="attribute9" value="free sulfur dioxides" onchange="onSelectionChange()" checked>
+						<label for="attribute9"> Free Sulfur Dioxides </label><br>
+						<input type="checkbox" id="attribute10" value="total sulfur dioxides"onchange="onSelectionChange()"  checked>
+						<label for="attribute10"> Total Sulfur Dioxides </label><br>
+						<input type="checkbox" id="attribute11" value="sulphates" onchange="onSelectionChange()" checked>
+						<label for="attribute11"> Sulphates </label><br><br>
+					</form>
+				</div>
+			</div>
+			<div class="col-5" style="height: 100%">
+				<div class="row justify-content-center" style="height: 100%">
+					<div id ="top-wine" class="align-self-center" style="height: 80%; width: 100%">
+
+					</div>
+					<div id ="white-legend" class="align-self-center" style="height: 20%; width: 100%">
+
+					</div>
+				</div>
+			</div>
+			<div class="col-5" style="height: 100%">
+				<div class="row justify-content-center" style="height: 100%">
+					<div id ="bottom-wine" class=" align-self-center" style="height: 80%; width: 100%">
+					</div>
+					<div id ="red-legend" class="align-self-center" style="height: 20%; width: 100%">
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<p style="font-size: 25px;"> Chemical Components Translation</p>
+				<ul style="font-size: 15px">
+					<li>Alcohol: Alcohol by volume (the good stuff) </li>
+					<li>pH: Overall measure of acidity</li>
+					<li>Citric Acid: What typically makes something sour, adds freshness</li>
+					<li>Residual Sugar: What sugar is left after fermentation, controls sweetness of the wine</li>
+					<li>Sulphates: Prevents oxidation in the wine, keeps it fresh throughout storage time</li>
+					<li>TSD: What SO2 is added overall, both free to fight oxidation and bonded to other chemicals in the wine</li>
+					<li>FSD: What SO2 remains free in the wine to keep it fresh and fight oxidation</li>
+					<li>Density: Translates into the strength of the wine and its flavors</li>
+					<li>Chlorides: The amount of salt in the wine</li>
+					<li>Vol. Acidity: The amount of acetic acid, can lead to unpleasant vinegar taste</li>
+					<li>Fixed Acidity: All acids in the wine, ones that don’t evaporate</li>
+				</ul>
+			</div>
+			<div class="col">
+				<p style="font-size: 25px;"> Takeaways</p>
+				<p style="font-size: 15px;  color: white;">
+					For white wines, the wines have larger variation between high quality wines (7-8) and low quality wines (3-4). For high quality
+					wines, they tend to have higher alcohol content, which goes well with white wines higher levels of sweetness overall. High
+					quality white wines also have low density, most likely due to the thought that white wine is supposed to be a lighter wine than red. For
+					the low quality wines, high acidity and sulfur dioxides are common. This is because both make the wines more bitter tasting, something
+					white wine drinkers often avoid.
+				</p>
+				<p style="font-size: 15px; color: white">
+					For red wines, there is little differentiation in high and low quality wine in terms of their chemical attributes. Both the highest
+					and lowest rankings, eight and three respectively, have higher density, alcohol levels, and pH. The difference comes from the highest quality
+					having lower sugar and less sulfates than the lowest quality. However, there is not much differentiation at all when it comes to chemical attributes
+					, so just pick whichever one has the prettiest bottle (that's what I do)
+				</p>
+			</div>
+		</div>
+	</div>
+</section><!-- cd-section -->
+
+<!--<section id="section4" class="cd-section">-->
+<!--	<div class="content-wrapper">-->
+<!--		<h2>EXPLORE YOUR TASTE</h2>-->
+<!--		<p>This visualization allows for wine discovery in by the audience’s preferences. Seeing a word cloud of common descriptors, the audience will be able to select intriguing descriptors to their taste preferences, to find what the top 5 wines are.-->
+<!--		</p>-->
+<!--		<img src="img/IMG_5213.jpg" style="width: 80%; height: 10%">-->
+<!--	</div>-->
+<!--</section>&lt;!&ndash; cd-section &ndash;&gt;-->
+
+<section id="section4" class="cd-section">
+	<div class="container-fluid">
+		<h2>DISCOVER WINE VARIETIES</h2>
+		<div class="row" style="width:100%; font-size: 10px">
+			<p>The hundreds of wine varieties available on the market can be overwhelming for a wine novice. This dashboard is designed to give a quick introduction to the top 12 most popular wines. A wordcloud of the most common descriptive words used by wine reviewers for a selected wine variety will help you quickly identify what a wine variety tastes like without having to try it</p>
+			<p>You can learn more about where the wine is produced, as well as an average price and rating from experts. Lastly, you can view experts' reccommendations, or the top wines by value (rating/price). </p>
+		</div>
+		<div class="container-fluid" style="height: 150vh;">
+			<div class="row justify-content-start align-items-center" style="width:75%;padding-left: 1vh; padding-right: 1vh; padding-top: 2vh">
+				<form class="form-inline">
+					<label for="categorySelector" class="col-form-label" style="margin-right:10px">Select one of the top 12 most popular wine varieties:</label>
+					<select id='categorySelector' class="custom-select align-self-center" style=font-size:12px;" onchange="varietyChange()">
+						<option value="Pinot Noir" selected>Pinot Noir</option>
+						<option value="Chardonnay">Chardonnay</option>
+						<option value="Cabernet Sauvignon">Cabernet Sauvignon</option>
+						<option value="Bordeaux-style Red Blend">Bordeaux-style Red</option>
+						<option value="Riesling">Riesling</option>
+						<option value="Sauvignon Blanc">Sauvignon Blanc</option>
+						<option value="Syrah">Syrah</option>
+						<option value="Rosé">Rosé</option>
+						<option value="Merlot">Merlot</option>
+						<option value="Nebbiolo">Nebbiolo</option>
+						<option value="Zinfandel">Zinfandel</option>
+					</select>
+				</form>
+			</div>
+			<div class="row" style="height: 150vh; padding-top:2vh; padding-left: 1vh; padding-right: 1vh;">
+				<div class="col">
+					<div class="row" style="border: thin solid rgba(211,211,211,0.73); border-radius: 5px; background: rgba(214,226,233,0.42)">
+						<div class="col-6 justify-content-center" style="height: 100%">
+							<div id="wordcloudDiv" style="height: 71vh; width:100%"></div>
+						</div>
+						<div class="col-5 justify-content-center">
+							<div class="row">
+								<div id="pieDiv" style="height: 50vh; width: 100%;">
+								</div>
+							</div>
+							<div class="row justify-content-center">
+								<div id="infoDiv" style="height: 20vh; width: 100%;">
+									<table class="table" id="table1">
+										<thead>
+										</thead>
+										<tbody class="justify-content-center">
+										<tr>
+											<td>Average Price (in US Dollars)</td>
+											<td id="price"></td>
+										</tr>
+										<tr>
+											<td>Average Rating (out of 100)</td>
+											<td id="rating"></td>
+										</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row" style="border: thin solid rgba(211,211,211,0.73); border-radius: 5px; background: rgba(214,226,233,0.42)">
+						<div id="barDiv" style="height: 50vh; width: 100%;"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section><!-- cd-section -->
+
+<section id="section5" class="cd-section">
+	<div class="container-fluid">
+		<h2>WINE BY PRICE TIER</h2>
+		<p>A great number of wine varieties can be enjoyed, no matter your budget.
+			The top 20 most prevalent varieties within each price tier are clustered together, sized by their prevalence.
+			Hover over each grape to see each variety’s average price and quality, within the price tier.
+		</p>
+		<div class="row justify-content-center">
+			<div id="bubbleDiv"></div>
+		</div>
+
+	</div>
+</section><!-- cd-section -->
+
+<section id="section6" class="cd-section">
+	<div class="container-fluid">
+		<iframe src="https://giphy.com/embed/Widn8Yco9vXDa" width="300" height="300" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/hellogiggles-wine-vino-Widn8Yco9vXDa">via GIPHY</a></p>
+		<p>
+			When choosing or talking about wine, there are many things to consider. Location, chemical attributes,
+			expert reviews and terms, and price point are all important things to keep in mind. However, It's important to
+			remember wine is meant to be enjoyed, so do what makes you, and your palette, happy.
+		</p>
+	</div>
+</section><!-- cd-section -->
+
+	
+<script src="js/jquery-2.1.4.js"></script>
+<script src="webpage/js/main.js"></script> <!-- Resource jQuery -->
+
+
+<!-- d3 -->
+<script src="https://d3js.org/d3.v6.min.js"></script>
+
+<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+<script src="https://d3js.org/topojson.v2.min.js"></script>
+<script src="https://d3js.org/d3-geo.v1.min.js"></script>
+<!-- Load d3-cloud -->
+<script src="https://cdn.jsdelivr.net/gh/holtzy/D3-graph-gallery@master/LIB/d3.layout.cloud.js"></script>
+
+<!-- OWN JS -->
+
+
+<script src="js/mapVis.js"></script>
+<script src="js/brushVis.js"></script>
+<script src="js/helpers.js"></script>
+
+<script src="js/mainMapBubble.js"></script>
+
+<script src="js/bubbleVis.js"></script>
+
+<script src="js/radarVis.js"></script>
+<script src="js/RadarChart.js"></script>
+
+<script src="js/piechart.js"></script>
+<script src="js/wordcloud.js"></script>
+<script src="js/barchart.js"></script>
+
+</body>
+</html>
